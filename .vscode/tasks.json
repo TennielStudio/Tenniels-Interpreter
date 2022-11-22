@@ -10,8 +10,8 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
-                "/Users/tenniel/Documents/1.png"
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "/Users/tenniel/Documents/helloworld.rtf"
             ],
             "options": {
                 "cwd": "${fileDirname}"

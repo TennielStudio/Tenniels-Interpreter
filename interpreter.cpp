@@ -5,13 +5,27 @@
 using namespace std;
 void runFile(string path)
 {
-    ifstream image;
-    image.open(path, ios::in);
+    ifstream file;
+    file.open(path, ios::in);
+
+    if (file.is_open())
+    {
+        cout << "file is open" << endl;
+    }
 }
 
 void runPrompt()
 {
-    // todo
+    string filePath = "";
+    cout << "> ";
+    cin >> filePath;
+
+    ifstream file;
+    file.open(filePath, ios::in);
+    if (file.is_open())
+    {
+        cout << "file is open" << endl;
+    }
 }
 
 int main(int argc, char *argv[])
