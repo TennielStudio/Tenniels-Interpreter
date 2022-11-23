@@ -3,7 +3,7 @@
 #include <fstream>
 
 using namespace std;
-void runFile(string path)
+void RunFile(string path)
 {
     ifstream file;
     file.open(path, ios::in);
@@ -14,7 +14,7 @@ void runFile(string path)
     }
 }
 
-void runPrompt()
+void RunPrompt()
 {
     string filePath = "";
     cout << "> ";
@@ -28,6 +28,16 @@ void runPrompt()
     }
 }
 
+void Report(int line, string errorLocation, string message)
+{
+    cout << "[line: " << line << "] Error: " << errorLocation << ": " << message << endl;
+}
+
+void Error(int line, string message)
+{
+    Report(line, "", message);
+}
+
 int main(int argc, char *argv[])
 {
     if (argc > 2)
@@ -36,11 +46,11 @@ int main(int argc, char *argv[])
     }
     else if (argc == 2)
     {
-        runFile(argv[1]);
+        RunFile(argv[1]);
     }
     else
     {
-        runPrompt();
+        RunPrompt();
     }
     return 0;
 }
