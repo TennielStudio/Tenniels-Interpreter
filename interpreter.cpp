@@ -1,9 +1,11 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "interpreter.hpp"
 
 using namespace std;
-void RunFile(string path)
+
+void Interpreter::RunFile(string path)
 {
     ifstream file;
     file.open(path, ios::in);
@@ -12,45 +14,36 @@ void RunFile(string path)
     {
         cout << "file is open" << endl;
     }
+
+    if (hadError)
+    {
+        exit(3);
+    }
 }
 
-void RunPrompt()
+void Interpreter::RunPrompt()
 {
     string filePath = "";
     cout << "> ";
     cin >> filePath;
-
     ifstream file;
     file.open(filePath, ios::in);
     if (file.is_open())
     {
         cout << "file is open" << endl;
     }
+
+    hadError = false;
 }
 
-void Report(int line, string errorLocation, string message)
+void Interpreter::Report(int line, string errorLocation, string message)
 {
     cout << "[line: " << line << "] Error: " << errorLocation << ": " << message << endl;
 }
 
-void Error(int line, string message)
+void Interpreter::Error(int line, string message)
 {
     Report(line, "", message);
-}
 
-int main(int argc, char *argv[])
-{
-    if (argc > 2)
-    {
-        cout << "Usage: jlox [script]" << endl;
-    }
-    else if (argc == 2)
-    {
-        RunFile(argv[1]);
-    }
-    else
-    {
-        RunPrompt();
-    }
-    return 0;
+    hadError = true;
 }
