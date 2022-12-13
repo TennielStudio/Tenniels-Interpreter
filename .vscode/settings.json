@@ -4,6 +4,9 @@
         "iosfwd": "cpp",
         "fstream": "cpp",
         "string": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "__locale": "cpp",
+        "__string": "cpp",
+        "string_view": "cpp"
     }
 }
