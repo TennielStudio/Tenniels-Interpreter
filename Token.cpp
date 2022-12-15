@@ -4,7 +4,7 @@
 #include <sstream>
 using namespace std;
 
-Token::Token(TokenType type, string lexeme, LiteralType literal, int lineNumber) : m_tokenType(type), m_lexeme(lexeme), m_literal(literal), m_lineNumber(lineNumber)
+Token::Token(TokenType type, string lexeme, int lineNumber) : m_tokenType(type), m_lexeme(lexeme), m_lineNumber(lineNumber)
 {
 }
 

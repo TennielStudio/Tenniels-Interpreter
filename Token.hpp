@@ -6,7 +6,7 @@ class Token
 {
 public:
     /// @brief Default constructor
-    Token(TokenType type, string lexeme, LiteralType literal, int lineNumber);
+    Token(TokenType type, string lexeme, int lineNumber);
 
     /// @brief Creates string that displays the token type lexeme and literal
     /// @return Returns the token type, lexeme, and literal in a string

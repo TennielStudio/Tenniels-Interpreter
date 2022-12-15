@@ -7,6 +7,15 @@ using namespace std;
 class Scanner
 {
 private:
+    /// @brief Scan a single token
+    void ScanToken();
+
+    /// @brief Consumes the next character in the source file
+    char Advance();
+
+    /// @brief Grabs the text of the current lexeme and creates a new token for it
+    void AddToken(TokenType type);
+
     /// @brief The raw source code is stored as a string
     string m_sources;
     /// @brief Existing tokens
