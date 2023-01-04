@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Scanner.hpp"
 
 using namespace std;
@@ -54,7 +55,38 @@ void Scanner::ScanToken()
     case '*':
         AddToken(STAR);
         break;
+    case '!':
+        AddToken(Match('=') ? BANG_EQUAL : BANG);
+        break;
+    case '=':
+        AddToken(Match('=') ? EQUAL_EQUAL : EQUAL);
+        break;
+    case '<':
+        AddToken(Match('=') ? LESS_EQUAL : LESS);
+        break;
+    case '>':
+        AddToken(Match('=') ? GREATER_EQUAL : GREATER);
+        break;
+
+    default:
+        cout << "Unexpected character." << endl;
     }
+}
+
+bool Scanner::Match(char expected)
+{
+    if (IsAtEnd())
+    {
+        return false;
+    }
+
+    if (m_sources[m_current] != expected)
+    {
+        return false;
+    }
+
+    m_current++;
+    return true;
 }
 
 char Scanner::Advance()

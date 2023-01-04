@@ -34,6 +34,9 @@ public:
     /// @brief Scan for tokens
     vector<Token> ScanTokens();
 
+    /// @brief Only consumed the current character if it's what we're looking for
+    bool Match(char expected);
+
     /// @brief Tells us if we've consumed all the characters
     /// @return True if consumed all characters, false otherwise
     bool IsAtEnd();
